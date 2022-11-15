@@ -7,10 +7,15 @@ dotenv.config();
 
 //  check if env variables are set
 
-console.log('password', process.env.DB_PASS);
-console.log('name', process.env.DB_NAME);
-console.log('host', process.env.DB_HOST);
-console.log('user', process.env.DB_USER);
+if (
+    !process.env.DB_HOST ||
+    !process.env.DB_USER ||
+    !process.env.DB_PASS ||
+    !process.env.DB_NAME
+) {
+    console.log('Please set all environment variables');
+    process.exit(1);
+}
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
