@@ -1,0 +1,221 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Global */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+/* global transition */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Type */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* inputs */
+input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+}
+/* input focus, active etc */
+input:focus {
+    outline: none;
+    border-color: #222;
+}
+
+input:active {
+    outline: none;
+    border-color: #222;
+}
+
+div.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 26px;
+}
+
+div.icon-input{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+}
+div.icon-input input{
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+div.icon-input input:focus{
+    outline: none;
+}
+
+/* outline .icon-input when input is focused */
+div.icon-input:focus-within{
+    outline: 1px solid #222;
+}
+div.icon-input img{
+    width: 24px;
+    height: 24px;
+}
+
+
+
+/* labels */
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #222;
+}
+
+/* form */
+.form-container{
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+form {
+    margin-block: 16px;
+}
+
+
+
+/* buttons */
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+    background: #222;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+/* Layout */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Components */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #222;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+}
+
+.nav__item {
+    margin-left: 1rem;
+}
+
+.nav__link {
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+}
+.nav__link:hover {
+    color: #ccc;
+}
+.nav__link--btn {
+    padding: 0.5rem 1rem;
+}
+
+.nav__link--btn:hover {
+    background: rgb(255, 255, 255);
+    color: rgb(45, 45, 45);
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 1rem;
+    background: linear-gradient(90deg, #f3f2ff 0%, #fbe0ff 50%, #ffefd7 100%);
+}
+
+.content{
+    padding: 1rem;
+    border: 1px solid #ffffffe0;
+    border-radius: 20px;
+    background: #ffffff8f;
+    backdrop-filter: blur(23px);
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    width: 524px;
+}
+@media (max-width: 768px) {
+    .content{
+        width: 100%;
+    }
+}
+
+

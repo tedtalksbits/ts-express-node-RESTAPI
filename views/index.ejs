@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <%- include('./fragments/header')-%>
+        <!-- api documentation -->
+
+        <h3>API Documentation</h3>
+        <span>🤞 </span><%= name %>
+        <p>
+            This is the API documentation for the <code>Node.js</code> API
+            application.
+        </p>
+
+        <h3>Routes</h3>
+        <h5>GET</h5>
+        <ul>
+            <li><a href="/api/users">/api/users</a></li>
+            <li><a href="/api/tokens">/api/tokens</a></li>
+            <li><a href="/api/menu">/api/menu</a></li>
+            <li><a href="/api/cart">/api/cart</a></li>
+            <li><a href="/api/orders">/api/orders</a></li>
+        </ul>
+
+        <h5>POST</h5>
+
+        <ul>
+            <li><a href="/api/users">/api/users</a></li>
+            <li><a href="/api/tokens">/api/tokens</a></li>
+            <li><a href="/api/menu">/api/menu</a></li>
+            <li><a href="/api/cart">/api/cart</a></li>
+            <li><a href="/api/orders">/api/orders</a></li>
+        </ul>
+
+        <h3>Rest response</h3>
+        <p>
+            All the routes return a JSON object with the following properties:
+        </p>
+        <ul>
+            <li><code>statusCode</code>: The HTTP status code</li>
+            <li><code>payload</code>: The data returned by the route</li>
+            <li><code>error</code>: The error message if any</li>
+        </ul>
+
+        <%- include('./fragments/footer')-%>
+    </body>
+</html>

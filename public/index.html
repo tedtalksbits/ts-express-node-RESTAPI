@@ -4,9 +4,118 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
         <title>The Brio</title>
     </head>
     <body>
-        <h1>Welcome to the API v1😊</h1>
+        <header>
+            <nav class="nav">
+                <div>
+                    <a class="logo" href="/">The Brio</a>
+                </div>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="/">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="/about">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <div class="content">
+                    <h1>Login</h1>
+                    <form>
+                        <div class="input-group">
+                            <label for="username">Username</label>
+                            <div class="icon-input">
+                                <img src="./image/user-icon.svg" alt="" />
+                                <input
+                                    class=""
+                                    type="text"
+                                    placeholder="username"
+                                    id="username"
+                                />
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <div class="icon-input">
+                                <img src="./image/lock-icon.svg" alt="" />
+                                <input
+                                    class=""
+                                    type="password"
+                                    placeholder="password"
+                                    id="password"
+                                />
+                            </div>
+                        </div>
+                        <div class="error"></div>
+                        <input id="submit" type="submit" value="Login" />
+                        <a href="/v1/api/docs">See docs</a>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <script>
+            const form = document.querySelector('#submit');
+            const username = document.querySelector('#username');
+            const password = document.querySelector('#password');
+            const usernameParent = username.parentElement;
+            const passwordParent = password.parentElement;
+            const error = document.querySelector('.error');
+
+            form.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('submit');
+                if (username.value === '') {
+                    // add red border using style to parent div
+                    usernameParent.style.outline = '1px solid red';
+                    // focus on the input
+                    username.focus();
+                    error.textContent = 'Please enter a username';
+                }
+                if (password.value === '') {
+                    // add red border using style to parent div
+                    passwordParent.style.outline = '1px solid red';
+                    // focus on the input
+                    password.focus();
+                    error.textContent = 'Please enter a password';
+                } else {
+                    // remove red border using style
+                    passwordParent.style.border = '1px solid #ccc';
+                    passwordParent.style.border = '1px solid #ccc';
+                    error.textContent = '';
+                    const data = {
+                        username: username.value,
+                        password: password.value,
+                    };
+
+                    login(data);
+                }
+            });
+            const login = async (data) => {
+                const resp = fetch('http://localhost:5005/v1/api/auth', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const res = await resp;
+                console.log(res);
+                if (res.status === 200) {
+                    window.location.href = '/apartments';
+                } else {
+                    error.textContent = 'Invalid username or password';
+                }
+            };
+        </script>
     </body>
 </html>
